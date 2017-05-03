@@ -58,7 +58,8 @@ light(torch) :-
     write('Torch is now lit.'),nl,
     %drop(torch),
     retract(holding(torch)),nl,
-    assert(holding(lit_torch)),nl.
+    assert(holding(lit_torch)),nl,
+    retract(holding(ember)),nl.
 
 light(_) :-
     write('That object is not lightable'),
@@ -83,7 +84,7 @@ place_stone(artifact):-
     assert(holding(earth)),
     write('You hold a special sphere named earth. The sphere resonates in your hands.'), nl,
     write('Power surges through you. You feel empowered.'),nl,
-    write('Suddenly a gang of rocks come crashing down on you. You fall to the ground unconsious. . .'), nl, finish, !.
+    write('Suddenly a gang of rocks come crashing down on you. You fall to the ground unconsious. . .'), nl, finish, !. 
     
 
 % These rules describe how to put down an object. 
@@ -194,6 +195,7 @@ instructions :-
         write('take(Object).      -- to pick up an object.'), nl,
         write('drop(Object).      -- to put down an object.'), nl,
         write('light(Object).     -- to light an object.'), nl,
+        write('place_stone(artifact). -- to place stone in artifact.'),nl,
         write('look.              -- to look around you again.'), nl,
         write('i.                 -- to check your inventory.'), nl,
         write('instructions.      -- to see this message again.'), nl,
